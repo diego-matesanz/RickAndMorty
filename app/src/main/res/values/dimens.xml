@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- View sizes -->
+    <dimen name="match_constraints">0dp</dimen>
+
+    <!-- Margins -->
+    <dimen name="margin_xxx_small">4dp</dimen>
+    <dimen name="margin_xx_small">8dp</dimen>
+    <dimen name="margin_x_small">12dp</dimen>
+    <dimen name="margin_small">16dp</dimen>
+    <dimen name="margin_medium">24dp</dimen>
+    <dimen name="margin_large">36dp</dimen>
+    <dimen name="margin_x_large">48dp</dimen>
+    <dimen name="margin_xx_large">56dp</dimen>
+
+    <!-- Paddings -->
+    <dimen name="padding_xx_small">8dp</dimen>
+    <dimen name="padding_x_small">12dp</dimen>
+    <dimen name="padding_small">16dp</dimen>
+    <dimen name="padding_medium">24dp</dimen>
+    <dimen name="padding_large">36dp</dimen>
+    <dimen name="padding_x_large">48dp</dimen>
+    <dimen name="padding_xx_large">56dp</dimen>
+
+    <!-- Text sizes -->
+    <dimen name="text_size_x_small">13sp</dimen>
+    <dimen name="text_size_small">15sp</dimen>
+    <dimen name="text_size_medium">18sp</dimen>
+    <dimen name="text_size_large">24sp</dimen>
+    <dimen name="text_size_x_large">32sp</dimen>
+    
+    <!-- Corner Radius Sizes -->
+    <dimen name="corner_radius_small">6dp</dimen>
+    <dimen name="corner_radius_medium">8dp</dimen>
+    <dimen name="corner_radius_large">10dp</dimen>
+</resources>
