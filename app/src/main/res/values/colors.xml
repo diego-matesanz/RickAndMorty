@@ -13,4 +13,5 @@
     <color name="malibu">#FF80B3FF</color>
     <color name="shalimar">#FFFFFFBE</color>
     <color name="starship">#FFF1E14E</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>

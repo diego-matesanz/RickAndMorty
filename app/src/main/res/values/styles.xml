@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Text Styles -->
+    <style name="BaseText">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+
+    <style name="HeadingSmall" parent="BaseText">
+        <item name="android:textColor">@color/riptide</item>
+        <item name="fontFamily">@font/outfit_medium</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
+    </style>
+
+    <style name="BodyMedium" parent="BaseText">
+        <item name="fontFamily">@font/outfit_light</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="BodySmall" parent="BaseText">
+        <item name="fontFamily">@font/outfit_light</item>
+        <item name="android:textSize">@dimen/text_size_x_small</item>
+    </style>
+</resources>

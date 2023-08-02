@@ -66,9 +66,12 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:$navVersion")
 
     // Retrofit
-    implementation ("com.squareup.retrofit2:retrofit:2.7.2")
-    implementation ("com.squareup.retrofit2:converter-gson:2.4.0")
+    implementation("com.squareup.retrofit2:retrofit:2.7.2")
+    implementation("com.squareup.retrofit2:converter-gson:2.4.0")
 
     // Glide
-    implementation ("com.github.bumptech.glide:glide:4.13.2")
+    implementation("com.github.bumptech.glide:glide:4.13.2")
+
+    // CardView
+    implementation("androidx.cardview:cardview:1.0.0")
 }

@@ -1,8 +1,19 @@
 <resources>
+    <!-- APP -->
     <string name="app_name">RickAndMorty</string>
     <string name="title_activity_main">MainActivity</string>
 
+    <!-- Content Descriptions -->
+    <string name="character_image_content_description">Character image</string>
+
+    <!-- Characters -->
     <string name="characters_fragment">Characters</string>
+    <string name="character_info">%1$s, %2$s</string>
+
+    <!-- Locations -->
     <string name="locations_fragment">Locations</string>
+
+    <!-- Episodes -->
     <string name="episodes_fragment">Episodes</string>
+
 </resources>
