@@ -8,9 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.diego.matesanz.rickandmorty.R
 import com.diego.matesanz.rickandmorty.data.model.Character
 import com.diego.matesanz.rickandmorty.databinding.LayoutCharacterItemBinding
+import com.diego.matesanz.rickandmorty.interfaces.OnCardClickListener
 
-class CharacterItemAdapter(private var characters: MutableList<Character>) : RecyclerView.Adapter<CharacterItemAdapter
-.ViewHolder>() {
+class CharacterItemAdapter(private var characters: MutableList<Character>, private val listener: OnCardClickListener) :
+    RecyclerView
+    .Adapter<CharacterItemAdapter
+    .ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.layout_character_item, parent, false)
@@ -26,6 +29,9 @@ class CharacterItemAdapter(private var characters: MutableList<Character>) : Rec
         val character = characters[position]
         holder.apply {
             binding.character = character
+            binding.root.setOnClickListener {
+                listener.onCardClicked(character)
+            }
         }
     }
 

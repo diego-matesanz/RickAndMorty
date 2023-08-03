@@ -7,6 +7,12 @@
         <item name="android:background">@color/transparent</item>
     </style>
 
+    <style name="HeadingMedium" parent="BaseText">
+        <item name="android:textColor">@color/starship</item>
+        <item name="fontFamily">@font/outfit_medium</item>
+        <item name="android:textSize">@dimen/text_size_x_large</item>
+    </style>
+
     <style name="HeadingSmall" parent="BaseText">
         <item name="android:textColor">@color/riptide</item>
         <item name="fontFamily">@font/outfit_medium</item>
@@ -21,5 +27,31 @@
     <style name="BodySmall" parent="BaseText">
         <item name="fontFamily">@font/outfit_light</item>
         <item name="android:textSize">@dimen/text_size_x_small</item>
+    </style>
+
+    <style name="InfoBodyKey" parent="BaseText">
+        <item name="android:textColor">@color/shalimar</item>
+        <item name="fontFamily">@font/outfit_medium</item>
+        <item name="android:textSize">@dimen/text_size_x_small</item>
+    </style>
+
+    <style name="InfoBodyValue" parent="BaseText">
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">@font/outfit_light</item>
+        <item name="android:textSize">@dimen/text_size_x_small</item>
+    </style>
+
+    <!-- Card Styles -->
+    <style name="InfoImageCardView" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialCardView.BottomRadius</item>
+    </style>
+
+
+    <style name="ShapeAppearanceOverlay.MaterialCardView.BottomRadius" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeBottomRight">16dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
     </style>
 </resources>

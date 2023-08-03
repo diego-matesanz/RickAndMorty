@@ -28,6 +28,20 @@ object GlobalBindingAdapters {
             .into(imageView)
     }
 
+    @BindingAdapter("fullImage")
+    @JvmStatic
+    fun setFullImage(imageView: ImageView, fullImage: String?) {
+        val imageOptions = RequestOptions()
+            .centerCrop()
+            .error(R.drawable.rick_and_morty_place_holder)
+            .placeholder(R.drawable.rick_and_morty_place_holder)
+            .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+        Glide.with(imageView.context)
+            .load(fullImage)
+            .apply(imageOptions)
+            .into(imageView)
+    }
+
     @BindingAdapter("species", "status")
     @JvmStatic
     fun setCharacterInfo(textView: TextView, species: String, status: String) {

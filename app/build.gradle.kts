@@ -74,4 +74,7 @@ dependencies {
 
     // CardView
     implementation("androidx.cardview:cardview:1.0.0")
+
+    //Window
+    implementation("androidx.window:window:1.0.0")
 }

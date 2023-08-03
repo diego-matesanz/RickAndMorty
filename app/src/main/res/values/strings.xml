@@ -9,6 +9,12 @@
     <!-- Characters -->
     <string name="characters_fragment">Characters</string>
     <string name="character_info">%1$s, %2$s</string>
+    <string name="status">Status:</string>
+    <string name="species">Species:</string>
+    <string name="gender">Gender:</string>
+    <string name="origin">Origin:</string>
+    <string name="location">Location:</string>
+    <string name="first_episode">First episode:</string>
 
     <!-- Locations -->
     <string name="locations_fragment">Locations</string>
