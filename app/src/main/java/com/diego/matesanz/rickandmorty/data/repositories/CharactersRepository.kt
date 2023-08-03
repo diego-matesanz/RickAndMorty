@@ -9,9 +9,9 @@ import retrofit2.Response
 
 class CharactersRepository {
 
-    suspend fun getCharacters(): Response<CharactersResponse> {
+    suspend fun getCharacters(url: String): Response<CharactersResponse> {
         return withContext(Dispatchers.IO) {
-            RetrofitUtil.instance.create(CharactersInterface::class.java).getCharacters()
+            RetrofitUtil.instance.create(CharactersInterface::class.java).getCharacters(url)
         }
     }
 }

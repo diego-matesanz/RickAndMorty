@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.diego.matesanz.rickandmorty.data.model.Character
 import com.diego.matesanz.rickandmorty.data.model.CharactersResponse
 import com.diego.matesanz.rickandmorty.data.repositories.CharactersRepository
+import com.diego.matesanz.rickandmorty.utils.ConstantsUtil
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
@@ -15,16 +16,20 @@ class CharactersViewModel : ViewModel() {
     val charactersResponse: MutableLiveData<Response<CharactersResponse>> = MutableLiveData()
     val characterList: MutableLiveData<MutableList<Character>> = MutableLiveData(mutableListOf())
 
+    var isNewSearch = true
+    var loadingCharacters = false
+
     private val charactersRepository = CharactersRepository()
 
-    private var isNewSearch = true
-
     fun getCharacters() {
-        Log.e(CharactersFragment.TAG, "getCharacters")
+        loadingCharacters = true
+        var url = ConstantsUtil.RICK_AND_MORTY_BASE_URL + ConstantsUtil.CHARACTERS_PATH
+        if (!charactersResponse.value?.body()?.info?.next.isNullOrEmpty()) {
+            url = charactersResponse.value?.body()?.info?.next!!
+        }
         viewModelScope.launch {
             try {
-                val response = charactersRepository.getCharacters()
-                Log.e(CharactersFragment.TAG, "response = $response")
+                val response = charactersRepository.getCharacters(url)
                 if (response.isSuccessful) {
                     charactersResponse.value = response
                 }

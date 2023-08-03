@@ -9,7 +9,7 @@ import com.diego.matesanz.rickandmorty.R
 import com.diego.matesanz.rickandmorty.data.model.Character
 import com.diego.matesanz.rickandmorty.databinding.LayoutCharacterItemBinding
 
-class CharacterItemAdapter(private var characters: List<Character>) : RecyclerView.Adapter<CharacterItemAdapter
+class CharacterItemAdapter(private var characters: MutableList<Character>) : RecyclerView.Adapter<CharacterItemAdapter
 .ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -29,7 +29,7 @@ class CharacterItemAdapter(private var characters: List<Character>) : RecyclerVi
         }
     }
 
-    fun setCharacters(newList: List<Character>) {
+    fun setCharacters(newList: MutableList<Character>) {
         val charactersDiffCallback = CharactersDiffCallback(characters, newList)
         val diffResult = DiffUtil.calculateDiff(charactersDiffCallback)
         characters = newList

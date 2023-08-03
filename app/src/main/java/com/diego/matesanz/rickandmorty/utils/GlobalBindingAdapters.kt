@@ -36,11 +36,11 @@ object GlobalBindingAdapters {
 
     @BindingAdapter("characters")
     @JvmStatic
-    fun setGames(recyclerView: RecyclerView, characters: List<Character>?) {
+    fun setCharacters(recyclerView: RecyclerView, characters: MutableList<Character>?) {
         val adapter = recyclerView.adapter
         if (adapter is CharacterItemAdapter) {
             if (characters != null) {
-                val charactersCopy = characters.map { it.copy() }
+                val charactersCopy = characters.map { it.copy() } as MutableList<Character>
                 adapter.setCharacters(charactersCopy)
             }
         }
