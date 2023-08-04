@@ -13,26 +13,38 @@ import retrofit2.Response
 
 class CharactersViewModel : ViewModel() {
 
-    val charactersResponse: MutableLiveData<Response<CharactersResponse>> = MutableLiveData()
+    val searchingText: MutableLiveData<String> = MutableLiveData("")
+    val charactersResponse: MutableLiveData<Response<CharactersResponse>?> = MutableLiveData()
     val characterList: MutableLiveData<MutableList<Character>> = MutableLiveData(mutableListOf())
 
+    var getNextUrl = true
     var isNewSearch = true
     var loadingCharacters = false
 
     private val charactersRepository = CharactersRepository()
 
     fun getCharacters() {
+        getNextUrl = true
         loadingCharacters = true
-        var url = ConstantsUtil.RICK_AND_MORTY_BASE_URL + ConstantsUtil.CHARACTERS_PATH
-        if (!charactersResponse.value?.body()?.info?.next.isNullOrEmpty()) {
-            url = charactersResponse.value?.body()?.info?.next!!
+        if (isNewSearch) {
+            getNextUrl = false
         }
+        var url = ConstantsUtil.RICK_AND_MORTY_BASE_URL + ConstantsUtil.CHARACTERS_PATH
+        if (!getNextUrl) {
+            if (searchingText.value?.isNotEmpty() == true) {
+                url += "/?name=${searchingText.value}"
+            }
+        } else {
+            if (!charactersResponse.value?.body()?.info?.next.isNullOrEmpty()) {
+                url = charactersResponse.value?.body()?.info?.next!!
+            }
+        }
+        Log.e(CharactersFragment.TAG, "url: $url")
         viewModelScope.launch {
             try {
                 val response = charactersRepository.getCharacters(url)
-                if (response.isSuccessful) {
-                    charactersResponse.value = response
-                }
+                Log.e(CharactersFragment.TAG, "response: ${response.body()}")
+                charactersResponse.value = response
             } catch (e: Exception) {
                 Log.e(CharactersFragment.TAG, "Exception error = $e")
             }

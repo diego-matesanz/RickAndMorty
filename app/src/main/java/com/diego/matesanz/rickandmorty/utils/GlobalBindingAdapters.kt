@@ -59,4 +59,10 @@ object GlobalBindingAdapters {
             }
         }
     }
+
+    @BindingAdapter("searchText")
+    @JvmStatic
+    fun setErrorBody(textView: TextView, searchText: String) {
+        textView.text = textView.context.getString(R.string.error_body, searchText)
+    }
 }

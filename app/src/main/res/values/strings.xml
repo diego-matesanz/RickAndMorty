@@ -5,6 +5,7 @@
 
     <!-- Content Descriptions -->
     <string name="character_image_content_description">Character image</string>
+    <string name="loader_gif_content_description">Loader gif</string>
 
     <!-- Characters -->
     <string name="characters_fragment">Characters</string>
@@ -15,6 +16,7 @@
     <string name="origin">Origin:</string>
     <string name="location">Location:</string>
     <string name="first_episode">First episode:</string>
+    <string name="search">Search</string>
 
     <!-- Locations -->
     <string name="locations_fragment">Locations</string>
@@ -22,4 +24,7 @@
     <!-- Episodes -->
     <string name="episodes_fragment">Episodes</string>
 
+    <!-- Error -->
+    <string name="error_title">Ooh, sh**!!</string>
+    <string name="error_body">Nothing found for "%1$s"</string>
 </resources>

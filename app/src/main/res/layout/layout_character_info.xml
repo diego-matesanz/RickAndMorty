@@ -32,190 +32,201 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/shape_character_info_background"
+                android:paddingBottom="@dimen/padding_large"
                 app:behavior_skipCollapsed="true"
                 app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
                 app:layout_constraintBottom_toBottomOf="parent">
 
-                <androidx.core.widget.NestedScrollView
+                <View
+                    android:layout_width="50dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="@dimen/margin_xx_small"
+                    android:background="@color/black_70"
+                    android:translationZ="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/character_image"
+                    fullImage="@{character.image}"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="350dp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/character_image_content_description"
+                    android:scaleType="fitXY"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/ImageView.Corner" />
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:paddingBottom="@dimen/padding_large">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/match_constraints"
+                    android:background="@drawable/shape_gradient_image"
+                    android:translationZ="10dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/character_image"
+                    app:layout_constraintTop_toTopOf="@+id/character_image" />
 
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/image_card_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="-16dp"
-                            app:cardCornerRadius="@dimen/corner_radius_x_large"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
+                <TextView
+                    android:id="@+id/text_view_name"
+                    style="@style/HeadingMedium"
+                    android:layout_width="@dimen/match_constraints"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_small"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    android:text="@{character.name}"
+                    android:translationZ="10dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/character_image"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="Rick Sánchez" />
 
-                            <ImageView
-                                android:id="@+id/image_view_character"
-                                fullImage="@{character.image}"
-                                android:layout_width="match_parent"
-                                android:layout_height="370dp"
-                                android:adjustViewBounds="true"
-                                android:contentDescription="@string/character_image_content_description"
-                                android:scaleType="fitXY" />
-                        </androidx.cardview.widget.CardView>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_small"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    android:background="@drawable/shape_info_container_background"
+                    android:padding="@dimen/padding_small"
+                    app:layout_constraintTop_toBottomOf="@+id/text_view_name">
 
-                        <TextView
-                            android:id="@+id/text_view_name"
-                            style="@style/HeadingMedium"
-                            android:layout_width="@dimen/match_constraints"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/margin_small"
-                            android:text="@{character.name}"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/image_card_view"
-                            tools:text="Rick Sánchez" />
+                    <TextView
+                        android:id="@+id/text_view_status"
+                        style="@style/InfoBodyKey"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/status"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
-                            android:id="@+id/text_view_status"
-                            style="@style/InfoBodyKey"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/margin_medium"
-                            android:layout_marginTop="@dimen/margin_medium"
-                            android:text="@string/status"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/text_view_name" />
+                    <TextView
+                        android:id="@+id/character_status"
+                        style="@style/InfoBodyValue"
+                        android:layout_width="@dimen/match_constraints"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_xx_small"
+                        android:layout_marginEnd="@dimen/margin_medium"
+                        android:text="@{character.status}"
+                        app:layout_constraintBottom_toBottomOf="@+id/text_view_status"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/text_view_status"
+                        app:layout_constraintTop_toTopOf="@+id/text_view_status" />
 
-                        <TextView
-                            android:id="@+id/character_status"
-                            style="@style/InfoBodyValue"
-                            android:layout_width="@dimen/match_constraints"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/margin_xx_small"
-                            android:layout_marginEnd="@dimen/margin_medium"
-                            android:text="@{character.status}"
-                            app:layout_constraintBottom_toBottomOf="@+id/text_view_status"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/text_view_status"
-                            app:layout_constraintTop_toTopOf="@+id/text_view_status" />
+                    <TextView
+                        android:id="@+id/text_view_species"
+                        style="@style/InfoBodyKey"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:text="@string/species"
+                        app:layout_constraintStart_toStartOf="@id/text_view_status"
+                        app:layout_constraintTop_toBottomOf="@+id/text_view_status" />
 
-                        <TextView
-                            android:id="@+id/text_view_species"
-                            style="@style/InfoBodyKey"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin_medium"
-                            android:text="@string/species"
-                            app:layout_constraintStart_toStartOf="@id/text_view_status"
-                            app:layout_constraintTop_toBottomOf="@+id/text_view_status" />
+                    <TextView
+                        android:id="@+id/character_species"
+                        style="@style/InfoBodyValue"
+                        android:layout_width="@dimen/match_constraints"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_xx_small"
+                        android:layout_marginEnd="@dimen/margin_medium"
+                        android:text="@{character.species}"
+                        app:layout_constraintBottom_toBottomOf="@+id/text_view_species"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/text_view_species"
+                        app:layout_constraintTop_toTopOf="@+id/text_view_species" />
 
-                        <TextView
-                            android:id="@+id/character_species"
-                            style="@style/InfoBodyValue"
-                            android:layout_width="@dimen/match_constraints"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/margin_xx_small"
-                            android:layout_marginEnd="@dimen/margin_medium"
-                            android:text="@{character.species}"
-                            app:layout_constraintBottom_toBottomOf="@+id/text_view_species"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/text_view_species"
-                            app:layout_constraintTop_toTopOf="@+id/text_view_species" />
+                    <TextView
+                        android:id="@+id/text_view_gender"
+                        style="@style/InfoBodyKey"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:text="@string/gender"
+                        app:layout_constraintStart_toStartOf="@id/text_view_status"
+                        app:layout_constraintTop_toBottomOf="@+id/text_view_species" />
 
-                        <TextView
-                            android:id="@+id/text_view_gender"
-                            style="@style/InfoBodyKey"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin_medium"
-                            android:text="@string/gender"
-                            app:layout_constraintStart_toStartOf="@id/text_view_status"
-                            app:layout_constraintTop_toBottomOf="@+id/text_view_species" />
+                    <TextView
+                        android:id="@+id/character_gender"
+                        style="@style/InfoBodyValue"
+                        android:layout_width="@dimen/match_constraints"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_xx_small"
+                        android:layout_marginEnd="@dimen/margin_medium"
+                        android:text="@{character.gender}"
+                        app:layout_constraintBottom_toBottomOf="@+id/text_view_gender"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/text_view_gender"
+                        app:layout_constraintTop_toTopOf="@+id/text_view_gender" />
 
-                        <TextView
-                            android:id="@+id/character_gender"
-                            style="@style/InfoBodyValue"
-                            android:layout_width="@dimen/match_constraints"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/margin_xx_small"
-                            android:layout_marginEnd="@dimen/margin_medium"
-                            android:text="@{character.gender}"
-                            app:layout_constraintBottom_toBottomOf="@+id/text_view_gender"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/text_view_gender"
-                            app:layout_constraintTop_toTopOf="@+id/text_view_gender" />
+                    <TextView
+                        android:id="@+id/text_view_origin"
+                        style="@style/InfoBodyKey"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:text="@string/origin"
+                        app:layout_constraintStart_toStartOf="@id/text_view_status"
+                        app:layout_constraintTop_toBottomOf="@+id/text_view_gender" />
 
-                        <TextView
-                            android:id="@+id/text_view_origin"
-                            style="@style/InfoBodyKey"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin_medium"
-                            android:text="@string/origin"
-                            app:layout_constraintStart_toStartOf="@id/text_view_status"
-                            app:layout_constraintTop_toBottomOf="@+id/text_view_gender" />
+                    <TextView
+                        android:id="@+id/character_origin"
+                        style="@style/InfoBodyValue"
+                        android:layout_width="@dimen/match_constraints"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_xx_small"
+                        android:layout_marginEnd="@dimen/margin_medium"
+                        android:text="@{character.origin.name}"
+                        app:layout_constraintBottom_toBottomOf="@+id/text_view_origin"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/text_view_origin"
+                        app:layout_constraintTop_toTopOf="@+id/text_view_origin" />
 
-                        <TextView
-                            android:id="@+id/character_origin"
-                            style="@style/InfoBodyValue"
-                            android:layout_width="@dimen/match_constraints"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/margin_xx_small"
-                            android:layout_marginEnd="@dimen/margin_medium"
-                            android:text="@{character.origin.name}"
-                            app:layout_constraintBottom_toBottomOf="@+id/text_view_origin"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/text_view_origin"
-                            app:layout_constraintTop_toTopOf="@+id/text_view_origin" />
+                    <TextView
+                        android:id="@+id/text_view_location"
+                        style="@style/InfoBodyKey"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:text="@string/location"
+                        app:layout_constraintStart_toStartOf="@id/text_view_status"
+                        app:layout_constraintTop_toBottomOf="@+id/text_view_origin" />
 
-                        <TextView
-                            android:id="@+id/text_view_location"
-                            style="@style/InfoBodyKey"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin_medium"
-                            android:text="@string/location"
-                            app:layout_constraintStart_toStartOf="@id/text_view_status"
-                            app:layout_constraintTop_toBottomOf="@+id/text_view_origin" />
+                    <TextView
+                        android:id="@+id/character_location"
+                        style="@style/InfoBodyValue"
+                        android:layout_width="@dimen/match_constraints"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_xx_small"
+                        android:layout_marginEnd="@dimen/margin_medium"
+                        android:text="@{character.location.name}"
+                        app:layout_constraintBottom_toBottomOf="@+id/text_view_location"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/text_view_location"
+                        app:layout_constraintTop_toTopOf="@+id/text_view_location" />
 
-                        <TextView
-                            android:id="@+id/character_location"
-                            style="@style/InfoBodyValue"
-                            android:layout_width="@dimen/match_constraints"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/margin_xx_small"
-                            android:layout_marginEnd="@dimen/margin_medium"
-                            android:text="@{character.location.name}"
-                            app:layout_constraintBottom_toBottomOf="@+id/text_view_location"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/text_view_location"
-                            app:layout_constraintTop_toTopOf="@+id/text_view_location" />
+                    <TextView
+                        android:id="@+id/text_view_first_episode"
+                        style="@style/InfoBodyKey"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:text="@string/first_episode"
+                        app:layout_constraintStart_toStartOf="@id/text_view_status"
+                        app:layout_constraintTop_toBottomOf="@+id/text_view_location" />
 
-                        <TextView
-                            android:id="@+id/text_view_first_episode"
-                            style="@style/InfoBodyKey"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin_medium"
-                            android:text="@string/first_episode"
-                            app:layout_constraintStart_toStartOf="@id/text_view_status"
-                            app:layout_constraintTop_toBottomOf="@+id/text_view_location" />
-
-                        <TextView
-                            android:id="@+id/character_first_episode"
-                            style="@style/InfoBodyValue"
-                            android:layout_width="@dimen/match_constraints"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/margin_xx_small"
-                            android:layout_marginEnd="@dimen/margin_medium"
-                            android:text="@{character.episode[0]}"
-                            app:layout_constraintBottom_toBottomOf="@+id/text_view_first_episode"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/text_view_first_episode"
-                            app:layout_constraintTop_toTopOf="@+id/text_view_first_episode" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </androidx.core.widget.NestedScrollView>
+                    <TextView
+                        android:id="@+id/character_first_episode"
+                        style="@style/InfoBodyValue"
+                        android:layout_width="@dimen/match_constraints"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_xx_small"
+                        android:layout_marginEnd="@dimen/margin_medium"
+                        android:text="@{character.episode[0]}"
+                        app:layout_constraintBottom_toBottomOf="@+id/text_view_first_episode"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/text_view_first_episode"
+                        app:layout_constraintTop_toTopOf="@+id/text_view_first_episode" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
