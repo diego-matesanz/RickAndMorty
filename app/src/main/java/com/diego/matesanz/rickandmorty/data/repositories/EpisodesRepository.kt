@@ -9,9 +9,9 @@ import retrofit2.Response
 
 class EpisodesRepository {
 
-    suspend fun getEpisodes(): Response<EpisodesResponse> {
+    suspend fun getEpisodes(url: String): Response<EpisodesResponse> {
         return withContext(Dispatchers.IO) {
-            RetrofitUtil.instance.create(EpisodesInterface::class.java).getEpisodes()
+            RetrofitUtil.instance.create(EpisodesInterface::class.java).getEpisodes(url)
         }
     }
 }

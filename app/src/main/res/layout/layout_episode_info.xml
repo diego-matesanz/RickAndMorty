@@ -7,11 +7,11 @@
 
         <variable
             name="fragment"
-            type="com.diego.matesanz.rickandmorty.screens.menu.locations.LocationsFragment" />
+            type="com.diego.matesanz.rickandmorty.screens.menu.episodes.EpisodesFragment" />
 
         <variable
-            name="location"
-            type="com.diego.matesanz.rickandmorty.data.model.Location" />
+            name="episode"
+            type="com.diego.matesanz.rickandmorty.data.model.Episode" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -54,12 +54,12 @@
                     android:layout_width="@dimen/match_constraints"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin_small"
-                    android:text="@{location.name}"
+                    android:text="@{episode.name}"
                     android:translationZ="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/sheet_header"
-                    tools:text="Earth" />
+                    tools:text="Pilot" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -70,49 +70,49 @@
                     app:layout_constraintTop_toBottomOf="@+id/text_view_name">
 
                     <TextView
-                        android:id="@+id/text_view_type"
+                        android:id="@+id/text_view_air_date"
                         style="@style/InfoBodyKey"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/type"
+                        android:text="@string/air_date"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/location_type"
+                        android:id="@+id/episode_air_date"
                         style="@style/InfoBodyValue"
                         android:layout_width="@dimen/match_constraints"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_xx_small"
                         android:layout_marginEnd="@dimen/margin_medium"
-                        android:text="@{location.type}"
-                        app:layout_constraintBottom_toBottomOf="@+id/text_view_type"
+                        android:text="@{episode.airDate}"
+                        app:layout_constraintBottom_toBottomOf="@+id/text_view_air_date"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/text_view_type"
-                        app:layout_constraintTop_toTopOf="@+id/text_view_type" />
+                        app:layout_constraintStart_toEndOf="@+id/text_view_air_date"
+                        app:layout_constraintTop_toTopOf="@+id/text_view_air_date" />
 
                     <TextView
-                        android:id="@+id/text_view_dimension"
+                        android:id="@+id/text_view_code"
                         style="@style/InfoBodyKey"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_medium"
-                        android:text="@string/dimension"
-                        app:layout_constraintStart_toStartOf="@id/text_view_type"
-                        app:layout_constraintTop_toBottomOf="@+id/text_view_type" />
+                        android:text="@string/episode_code"
+                        app:layout_constraintStart_toStartOf="@id/text_view_air_date"
+                        app:layout_constraintTop_toBottomOf="@+id/text_view_air_date" />
 
                     <TextView
-                        android:id="@+id/location_dimension"
+                        android:id="@+id/episode_code"
                         style="@style/InfoBodyValue"
                         android:layout_width="@dimen/match_constraints"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_xx_small"
                         android:layout_marginEnd="@dimen/margin_medium"
-                        android:text="@{location.dimension}"
-                        app:layout_constraintBottom_toBottomOf="@+id/text_view_dimension"
+                        android:text="@{episode.episode}"
+                        app:layout_constraintBottom_toBottomOf="@+id/text_view_code"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/text_view_dimension"
-                        app:layout_constraintTop_toTopOf="@+id/text_view_dimension" />
+                        app:layout_constraintStart_toEndOf="@+id/text_view_code"
+                        app:layout_constraintTop_toTopOf="@+id/text_view_code" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
