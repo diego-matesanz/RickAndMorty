@@ -1,63 +1,64 @@
-package com.diego.matesanz.rickandmorty.screens.menu.characters
+package com.diego.matesanz.rickandmorty.screens.menu.locations
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.diego.matesanz.rickandmorty.data.model.Character
-import com.diego.matesanz.rickandmorty.data.model.CharactersResponse
-import com.diego.matesanz.rickandmorty.data.repositories.CharactersRepository
+import com.diego.matesanz.rickandmorty.data.model.Location
+import com.diego.matesanz.rickandmorty.data.model.LocationsResponse
+import com.diego.matesanz.rickandmorty.data.repositories.LocationsRepository
 import com.diego.matesanz.rickandmorty.utils.ConstantsUtil
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class CharactersViewModel : ViewModel() {
+class LocationsViewModel : ViewModel() {
 
     val searchingText: MutableLiveData<String> = MutableLiveData("")
-    val charactersResponse: MutableLiveData<Response<CharactersResponse>?> = MutableLiveData()
-    val characterList: MutableLiveData<MutableList<Character>> = MutableLiveData(mutableListOf())
+    val locationsResponse: MutableLiveData<Response<LocationsResponse>?> = MutableLiveData()
+    val locationList: MutableLiveData<MutableList<Location>> = MutableLiveData(mutableListOf())
 
-    var getNextUrl = true
     var isNewSearch = true
-    var loadingCharacters = false
+    var loadingLocations = false
 
-    private val charactersRepository = CharactersRepository()
+    private val locationsRepository = LocationsRepository()
 
-    fun getCharacters() {
+    private var getNextUrl = true
+
+    fun getLocations() {
         getNextUrl = true
-        loadingCharacters = true
+        loadingLocations = true
         if (isNewSearch) {
             getNextUrl = false
         }
-        var url = ConstantsUtil.RICK_AND_MORTY_BASE_URL + ConstantsUtil.CHARACTERS_PATH
+        var url = ConstantsUtil.RICK_AND_MORTY_BASE_URL + ConstantsUtil.LOCATIONS_PATH
         if (!getNextUrl) {
             if (searchingText.value?.isNotEmpty() == true) {
                 url += "/?name=${searchingText.value}"
             }
         } else {
-            if (!charactersResponse.value?.body()?.info?.next.isNullOrEmpty()) {
-                url = charactersResponse.value?.body()?.info?.next!!
+            if (!locationsResponse.value?.body()?.info?.next.isNullOrEmpty()) {
+                url = locationsResponse.value?.body()?.info?.next!!
             }
         }
-        Log.e(CharactersFragment.TAG, "url: $url")
+        Log.e(LocationsFragment.TAG, "url: $url")
         viewModelScope.launch {
             try {
-                val response = charactersRepository.getCharacters(url)
-                Log.e(CharactersFragment.TAG, "response: ${response.body()}")
-                charactersResponse.value = response
+                val response = locationsRepository.getLocations(url)
+                Log.e(LocationsFragment.TAG, "response: ${response.body()}")
+                locationsResponse.value = response
             } catch (e: Exception) {
-                Log.e(CharactersFragment.TAG, "Exception error = $e")
+                Log.e(LocationsFragment.TAG, "Exception error = $e")
             }
         }
     }
 
-    fun getCharactersInfo() {
+    fun getLocationsInfo() {
         if (isNewSearch) {
-            characterList.value = charactersResponse.value?.body()?.results as MutableList<Character>
+            locationList.value = locationsResponse.value?.body()?.results as MutableList<Location>
         } else {
-            val auxCharacters = characterList.value
-            auxCharacters?.addAll(charactersResponse.value?.body()?.results as MutableList<Character>)
-            characterList.value = auxCharacters!!
+            val auxLocations = locationList.value
+            auxLocations?.addAll(locationsResponse.value?.body()?.results as MutableList<Location>)
+            locationList.value = auxLocations!!
         }
     }
 }

@@ -1,24 +1,21 @@
-package com.diego.matesanz.rickandmorty.screens.menu.characters.adapters
+package com.diego.matesanz.rickandmorty.screens.menu.locations.adapters
 
 import androidx.recyclerview.widget.DiffUtil
-import com.diego.matesanz.rickandmorty.data.model.Character
+import com.diego.matesanz.rickandmorty.data.model.Location
 
-class CharactersDiffCallback(
-    private val oldCharacterList: List<Character>,
-    private val newCharacterList: List<Character>
+class LocationsDiffCallback(
+    private val oldLocationList: List<Location>,
+    private val newLocationList: List<Location>
 ) : DiffUtil.Callback() {
 
-    override fun getOldListSize(): Int = oldCharacterList.size
-    override fun getNewListSize(): Int = newCharacterList.size
+    override fun getOldListSize(): Int = oldLocationList.size
+    override fun getNewListSize(): Int = newLocationList.size
 
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        return oldCharacterList[oldItemPosition].id == newCharacterList[newItemPosition].id
+        return oldLocationList[oldItemPosition].id == newLocationList[newItemPosition].id
     }
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        return oldCharacterList[oldItemPosition].name == newCharacterList[newItemPosition].name &&
-                oldCharacterList[oldItemPosition].image == newCharacterList[newItemPosition].image &&
-                oldCharacterList[oldItemPosition].species == newCharacterList[newItemPosition].species &&
-                oldCharacterList[oldItemPosition].status == newCharacterList[newItemPosition].status
+        return oldLocationList[oldItemPosition].name == newLocationList[newItemPosition].name
     }
 }

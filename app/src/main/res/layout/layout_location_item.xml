@@ -6,58 +6,32 @@
     <data>
 
         <variable
-            name="character"
-            type="com.diego.matesanz.rickandmorty.data.model.Character" />
+            name="location"
+            type="com.diego.matesanz.rickandmorty.data.model.Location" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_xx_small"
-        android:layout_marginBottom="@dimen/margin_small">
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/image_card_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="@dimen/corner_radius_medium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/image_view_character"
-                image="@{character.image}"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:contentDescription="@string/character_image_content_description"
-                android:scaleType="fitXY" />
-        </androidx.cardview.widget.CardView>
+        android:paddingHorizontal="@dimen/margin_x_small"
+        android:paddingBottom="@dimen/margin_small">
 
         <TextView
             android:id="@+id/text_view_title"
-            style="@style/BodyMedium"
+            style="@style/BodyError"
             android:layout_width="@dimen/match_constraints"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_xx_small"
-            android:text="@{character.name}"
+            android:text="@{location.name}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_card_view"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Rick Sánchez" />
 
-        <TextView
-            android:id="@+id/text_view_body"
-            style="@style/BodySmall"
-            species="@{character.species}"
-            status="@{character.status}"
-            android:layout_width="@dimen/match_constraints"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_xxx_small"
-            android:text="@{character.name}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_view_title"
-            tools:text="Human, Alive" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/margin_small"
+            android:background="@color/riptide"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_title" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

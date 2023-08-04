@@ -20,6 +20,8 @@
 
     <!-- Locations -->
     <string name="locations_fragment">Locations</string>
+    <string name="type">Type:</string>
+    <string name="dimension">Dimension:</string>
 
     <!-- Episodes -->
     <string name="episodes_fragment">Episodes</string>

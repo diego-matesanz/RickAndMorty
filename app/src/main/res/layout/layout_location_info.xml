@@ -7,11 +7,11 @@
 
         <variable
             name="fragment"
-            type="com.diego.matesanz.rickandmorty.screens.menu.characters.CharactersFragment" />
+            type="com.diego.matesanz.rickandmorty.screens.menu.locations.LocationsFragment" />
 
         <variable
-            name="character"
-            type="com.diego.matesanz.rickandmorty.data.model.Character" />
+            name="location"
+            type="com.diego.matesanz.rickandmorty.data.model.Location" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,6 +38,7 @@
                 app:layout_constraintBottom_toBottomOf="parent">
 
                 <View
+                    android:id="@+id/sheet_header"
                     android:layout_width="50dp"
                     android:layout_height="2dp"
                     android:layout_marginTop="@dimen/margin_xx_small"
@@ -47,80 +48,58 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/character_image"
-                    fullImage="@{character.image}"
-                    android:layout_width="match_parent"
-                    android:layout_height="350dp"
-                    android:adjustViewBounds="true"
-                    android:contentDescription="@string/character_image_content_description"
-                    android:scaleType="fitXY"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:shapeAppearanceOverlay="@style/ImageView.Corner" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/match_constraints"
-                    android:background="@drawable/shape_gradient_image"
-                    android:translationZ="10dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/character_image"
-                    app:layout_constraintTop_toTopOf="@+id/character_image" />
-
                 <TextView
                     android:id="@+id/text_view_name"
                     style="@style/HeadingMedium"
                     android:layout_width="@dimen/match_constraints"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/margin_small"
-                    android:layout_marginBottom="@dimen/margin_small"
-                    android:text="@{character.name}"
+                    android:layout_margin="@dimen/margin_small"
+                    android:text="@{location.name}"
                     android:translationZ="10dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/character_image"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    tools:text="Rick Sánchez" />
+                    app:layout_constraintTop_toTopOf="@+id/sheet_header"
+                    tools:text="Earth" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/margin_small"
-                    android:layout_marginTop="@dimen/margin_large"
-                    android:layout_marginBottom="@dimen/margin_small"
+                    android:layout_margin="@dimen/margin_small"
                     android:background="@drawable/shape_info_container_background"
                     android:padding="@dimen/padding_small"
                     app:layout_constraintTop_toBottomOf="@+id/text_view_name">
 
                     <TextView
-                        android:id="@+id/text_view_status"
+                        android:id="@+id/text_view_type"
                         style="@style/InfoBodyKey"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/status"
+                        android:text="@string/type"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/character_status"
+                        android:id="@+id/location_type"
                         style="@style/InfoBodyValue"
                         android:layout_width="@dimen/match_constraints"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_xx_small"
                         android:layout_marginEnd="@dimen/margin_medium"
-                        android:text="@{character.status}"
-                        app:layout_constraintBottom_toBottomOf="@+id/text_view_status"
+                        android:text="@{location.type}"
+                        app:layout_constraintBottom_toBottomOf="@+id/text_view_type"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/text_view_status"
-                        app:layout_constraintTop_toTopOf="@+id/text_view_status" />
+                        app:layout_constraintStart_toEndOf="@+id/text_view_type"
+                        app:layout_constraintTop_toTopOf="@+id/text_view_type" />
 
                     <TextView
-                        android:id="@+id/text_view_species"
+                        android:id="@+id/text_view_dimension"
                         style="@style/InfoBodyKey"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_medium"
-                        android:text="@string/species"
-                        app:layout_constraintStart_toStartOf="@id/text_view_status"
-                        app:layout_constraintTop_toBottomOf="@+id/text_view_status" />
+                        android:text="@string/dimension"
+                        app:layout_constraintStart_toStartOf="@id/text_view_type"
+                        app:layout_constraintTop_toBottomOf="@+id/text_view_type" />
 
                     <TextView
                         android:id="@+id/character_species"
@@ -129,103 +108,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_xx_small"
                         android:layout_marginEnd="@dimen/margin_medium"
-                        android:text="@{character.species}"
-                        app:layout_constraintBottom_toBottomOf="@+id/text_view_species"
+                        android:text="@{location.dimension}"
+                        app:layout_constraintBottom_toBottomOf="@+id/text_view_dimension"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/text_view_species"
-                        app:layout_constraintTop_toTopOf="@+id/text_view_species" />
-
-                    <TextView
-                        android:id="@+id/text_view_gender"
-                        style="@style/InfoBodyKey"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin_medium"
-                        android:text="@string/gender"
-                        app:layout_constraintStart_toStartOf="@id/text_view_status"
-                        app:layout_constraintTop_toBottomOf="@+id/text_view_species" />
-
-                    <TextView
-                        android:id="@+id/character_gender"
-                        style="@style/InfoBodyValue"
-                        android:layout_width="@dimen/match_constraints"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/margin_xx_small"
-                        android:layout_marginEnd="@dimen/margin_medium"
-                        android:text="@{character.gender}"
-                        app:layout_constraintBottom_toBottomOf="@+id/text_view_gender"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/text_view_gender"
-                        app:layout_constraintTop_toTopOf="@+id/text_view_gender" />
-
-                    <TextView
-                        android:id="@+id/text_view_origin"
-                        style="@style/InfoBodyKey"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin_medium"
-                        android:text="@string/origin"
-                        app:layout_constraintStart_toStartOf="@id/text_view_status"
-                        app:layout_constraintTop_toBottomOf="@+id/text_view_gender" />
-
-                    <TextView
-                        android:id="@+id/character_origin"
-                        style="@style/InfoBodyValue"
-                        android:layout_width="@dimen/match_constraints"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/margin_xx_small"
-                        android:layout_marginEnd="@dimen/margin_medium"
-                        android:text="@{character.origin.name}"
-                        app:layout_constraintBottom_toBottomOf="@+id/text_view_origin"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/text_view_origin"
-                        app:layout_constraintTop_toTopOf="@+id/text_view_origin" />
-
-                    <TextView
-                        android:id="@+id/text_view_location"
-                        style="@style/InfoBodyKey"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin_medium"
-                        android:text="@string/location"
-                        app:layout_constraintStart_toStartOf="@id/text_view_status"
-                        app:layout_constraintTop_toBottomOf="@+id/text_view_origin" />
-
-                    <TextView
-                        android:id="@+id/character_location"
-                        style="@style/InfoBodyValue"
-                        android:layout_width="@dimen/match_constraints"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/margin_xx_small"
-                        android:layout_marginEnd="@dimen/margin_medium"
-                        android:text="@{character.location.name}"
-                        app:layout_constraintBottom_toBottomOf="@+id/text_view_location"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/text_view_location"
-                        app:layout_constraintTop_toTopOf="@+id/text_view_location" />
-
-                    <TextView
-                        android:id="@+id/text_view_first_episode"
-                        style="@style/InfoBodyKey"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin_medium"
-                        android:text="@string/first_episode"
-                        app:layout_constraintStart_toStartOf="@id/text_view_status"
-                        app:layout_constraintTop_toBottomOf="@+id/text_view_location" />
-
-                    <TextView
-                        android:id="@+id/character_first_episode"
-                        style="@style/InfoBodyValue"
-                        android:layout_width="@dimen/match_constraints"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/margin_xx_small"
-                        android:layout_marginEnd="@dimen/margin_medium"
-                        android:text="@{character.episode[0]}"
-                        app:layout_constraintBottom_toBottomOf="@+id/text_view_first_episode"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/text_view_first_episode"
-                        app:layout_constraintTop_toTopOf="@+id/text_view_first_episode" />
+                        app:layout_constraintStart_toEndOf="@+id/text_view_dimension"
+                        app:layout_constraintTop_toTopOf="@+id/text_view_dimension" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
