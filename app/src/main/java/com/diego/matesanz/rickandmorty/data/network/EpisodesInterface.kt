@@ -5,10 +5,11 @@ import com.diego.matesanz.rickandmorty.utils.ConstantsUtil
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Headers
+import retrofit2.http.Url
 
 interface EpisodesInterface {
 
     @Headers("Content-Type: application/json;charset=UTF-8")
-    @GET(ConstantsUtil.EPISODES_PATH)
-    suspend fun getEpisodes(): Response<EpisodesResponse>
+    @GET
+    suspend fun getEpisodes(@Url url: String): Response<EpisodesResponse>
 }

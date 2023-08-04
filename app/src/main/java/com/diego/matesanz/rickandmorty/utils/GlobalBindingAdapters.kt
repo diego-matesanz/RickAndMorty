@@ -9,8 +9,10 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.diego.matesanz.rickandmorty.R
 import com.diego.matesanz.rickandmorty.data.model.Character
+import com.diego.matesanz.rickandmorty.data.model.Episode
 import com.diego.matesanz.rickandmorty.data.model.Location
 import com.diego.matesanz.rickandmorty.screens.menu.characters.adapters.CharacterItemAdapter
+import com.diego.matesanz.rickandmorty.screens.menu.episodes.adapters.EpisodeItemAdapter
 import com.diego.matesanz.rickandmorty.screens.menu.locations.adapters.LocationItemAdapter
 
 object GlobalBindingAdapters {
@@ -70,6 +72,18 @@ object GlobalBindingAdapters {
             if (locations != null) {
                 val locationsCopy = locations.map { it.copy() } as MutableList<Location>
                 adapter.setLocations(locationsCopy)
+            }
+        }
+    }
+
+    @BindingAdapter("episodes")
+    @JvmStatic
+    fun setEpisodes(recyclerView: RecyclerView, episodes: MutableList<Episode>?) {
+        val adapter = recyclerView.adapter
+        if (adapter is EpisodeItemAdapter) {
+            if (episodes != null) {
+                val episodesCopy = episodes.map { it.copy() } as MutableList<Episode>
+                adapter.setEpisodes(episodesCopy)
             }
         }
     }

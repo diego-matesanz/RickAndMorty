@@ -35,8 +35,8 @@ class LocationItemAdapter(private var locations: MutableList<Location>, private 
     }
 
     fun setLocations(newList: MutableList<Location>) {
-        val charactersDiffCallback = LocationsDiffCallback(locations, newList)
-        val diffResult = DiffUtil.calculateDiff(charactersDiffCallback)
+        val locationsDiffCallback = LocationsDiffCallback(locations, newList)
+        val diffResult = DiffUtil.calculateDiff(locationsDiffCallback)
         locations = newList
         diffResult.dispatchUpdatesTo(this)
     }

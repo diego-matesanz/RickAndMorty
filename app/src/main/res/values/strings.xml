@@ -25,6 +25,8 @@
 
     <!-- Episodes -->
     <string name="episodes_fragment">Episodes</string>
+    <string name="air_date">Air date:</string>
+    <string name="episode_code">Episode code:</string>
 
     <!-- Error -->
     <string name="error_title">Ooh, sh**!!</string>

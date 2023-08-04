@@ -200,7 +200,5 @@ class LocationsFragment : Fragment(), OnCardClickListener {
 
     companion object {
         val TAG: String = LocationsFragment::class.java.simpleName
-
-        const val LOCATIONS_GRID_SPAN_COUNT = 2
     }
 }
