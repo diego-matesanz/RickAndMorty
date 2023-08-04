@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Text Styles -->
+    <style name="BaseText">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+
+    <style name="HeadingMedium" parent="BaseText">
+        <item name="android:textColor">@color/starship</item>
+        <item name="fontFamily">@font/outfit_medium</item>
+        <item name="android:textSize">@dimen/text_size_x_large</item>
+    </style>
+
+    <style name="HeadingSmall" parent="BaseText">
+        <item name="android:textColor">@color/riptide</item>
+        <item name="fontFamily">@font/outfit_medium</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
+    </style>
+
+    <style name="HeadingError" parent="BaseText">
+        <item name="fontFamily">@font/outfit_medium</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
+    </style>
+
+    <style name="BodyMedium" parent="BaseText">
+        <item name="fontFamily">@font/outfit_light</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="BodySmall" parent="BaseText">
+        <item name="fontFamily">@font/outfit_light</item>
+        <item name="android:textSize">@dimen/text_size_x_small</item>
+    </style>
+
+    <style name="BodyError" parent="BaseText">
+        <item name="fontFamily">@font/outfit_light</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+    </style>
+
+    <style name="InfoBodyKey" parent="BaseText">
+        <item name="android:textColor">@color/shalimar</item>
+        <item name="fontFamily">@font/outfit_medium</item>
+        <item name="android:textSize">@dimen/text_size_x_small</item>
+    </style>
+
+    <style name="InfoBodyValue" parent="BaseText">
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">@font/outfit_light</item>
+        <item name="android:textSize">@dimen/text_size_x_small</item>
+    </style>
+
+    <style name="PlaceHolderTextAppearance" parent="BodyMedium">
+        <item name="android:textColor">@color/shalimar</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+    </style>
+
+    <!-- Text input layout Styles -->
+    <style name="EditTextThemeOverlay" parent="">
+        <item name="colorAccent">@color/shalimar</item>
+        <item name="android:background">@color/riptide</item>
+        <item name="textInputStyle">@style/Theme.AppCompat.Light.NoActionBar</item>
+    </style>
+
+    <style name="BaseInputLayout">
+        <item name="android:textColorHint">@color/shalimar</item>
+        <item name="android:theme">@style/EditTextThemeOverlay</item>
+        <item name="placeholderTextAppearance">@style/PlaceHolderTextAppearance</item>
+        <item name="errorTextAppearance">@style/PlaceHolderTextAppearance</item>
+        <item name="android:textAppearance">@style/PlaceHolderTextAppearance</item>
+    </style>
+
+    <style name="BaseEditText">
+        <item name="android:textColor">@color/shalimar</item>
+        <item name="android:backgroundTint">@color/riptide</item>
+        <item name="android:paddingHorizontal">@dimen/padding_medium</item>
+    </style>
+
+    <style name="SearchInputLayout" parent="BaseInputLayout">
+        <item name="android:hint">@string/search</item>
+    </style>
+
+    <style name="SearchEditText" parent="BaseEditText">
+        <item name="android:inputType">text</item>
+    </style>
+
+    <!-- Card Styles -->
+    <style name="ImageView.Corner" parent="">
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
+</resources>
