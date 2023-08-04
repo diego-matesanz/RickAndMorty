@@ -17,11 +17,12 @@ class CharactersViewModel : ViewModel() {
     val charactersResponse: MutableLiveData<Response<CharactersResponse>?> = MutableLiveData()
     val characterList: MutableLiveData<MutableList<Character>> = MutableLiveData(mutableListOf())
 
-    var getNextUrl = true
     var isNewSearch = true
     var loadingCharacters = false
 
     private val charactersRepository = CharactersRepository()
+
+    private var getNextUrl = true
 
     fun getCharacters() {
         getNextUrl = true

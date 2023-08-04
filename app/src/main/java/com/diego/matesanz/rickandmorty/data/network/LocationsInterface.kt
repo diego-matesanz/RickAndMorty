@@ -5,10 +5,11 @@ import com.diego.matesanz.rickandmorty.utils.ConstantsUtil
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Headers
+import retrofit2.http.Url
 
 interface LocationsInterface {
 
     @Headers("Content-Type: application/json;charset=UTF-8")
-    @GET(ConstantsUtil.LOCATIONS_PATH)
-    suspend fun getLocations(): Response<LocationsResponse>
+    @GET
+    suspend fun getLocations(@Url url: String): Response<LocationsResponse>
 }

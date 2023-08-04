@@ -9,9 +9,9 @@ import retrofit2.Response
 
 class LocationsRepository {
 
-    suspend fun getLocations(): Response<LocationsResponse> {
+    suspend fun getLocations(url: String): Response<LocationsResponse> {
         return withContext(Dispatchers.IO) {
-            RetrofitUtil.instance.create(LocationsInterface::class.java).getLocations()
+            RetrofitUtil.instance.create(LocationsInterface::class.java).getLocations(url)
         }
     }
 }

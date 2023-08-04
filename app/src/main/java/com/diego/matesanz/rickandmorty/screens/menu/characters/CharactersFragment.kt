@@ -55,6 +55,7 @@ class CharactersFragment : Fragment(), OnCardClickListener {
         binding.showInfo = false
         binding.isLoading = true
         binding.viewModel = viewModel
+        binding.lifecycleOwner = this
         binding.isEmptyResults = false
         isFirstCharactersLoad = true
         viewModel.isNewSearch = true
